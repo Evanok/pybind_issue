@@ -1,0 +1,4 @@
+tar -xf pybind_issue.tar.gz
+cd pybind_issue
+pip install cpp_python_export
+python python_tests/test_compute_mat.py
