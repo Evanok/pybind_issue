@@ -1,18 +1,11 @@
 import compute_mat as cm
 import numpy as np
-from scipy import signal as sp
-import matplotlib.pyplot as plt
-import pytest
-import os
-import time
 
 def load_and_run_mat():
         input_size = 56
         mat = cm.compute_mat ()
         print ('init...')
 
-        print ("pid", os.getpid())
-        time.sleep(0)
         mat.compute_mat_wrapper_create (input_size)
         print ("create done..")
         c_output = np.zeros ((input_size,), dtype=np.float32)
@@ -47,6 +40,7 @@ def load_and_run_mat():
         print ("process..")
         c_output = mat.compute_mat_wrapper_process(c_input, c_output)
         mat.compute_mat_wrapper_destroy()
+        print ("all done")
 
 
 if __name__ == "__main__":

@@ -16,7 +16,7 @@ void compute_mat_create(compute_mat_struct* p_this, uint32_t nb)
 	}
 	printf ("malloc done %p...\n", p_this->state);
 
-	memset(p_this->state, 0, sizeof(float) * nb); // -> SEGMENTATION FAULT HERE
+	memset(p_this->state, 0, sizeof(float) * nb); // -> SEGMENTATION FAULT
 	printf ("%s DONE\n", __FUNCTION__);
 }
 
@@ -51,11 +51,11 @@ void compute_mat_process(compute_mat_struct* p_this, float* input, float* output
 		sum = p_this->b_r[k] + p_this->W_ir[k] - p_this->b_hn[k] - input[k] + p_this->W_in[k];
 		output[k] = (1 - p_this->temp_z[k]) * sum + (p_this->temp_z[k]);
 
-		//p_this->state[k] = output[k];
+		p_this->state[k] = output[k];
 	}
 }
 
 void compute_mat_destroy(compute_mat_struct* p_this)
 {
-	//free(p_this->state);
+	free(p_this->state);
 }
