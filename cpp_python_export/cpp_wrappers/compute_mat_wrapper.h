@@ -10,7 +10,7 @@ public:
 	compute_mat_wrapper();
 	~compute_mat_wrapper();
 	void compute_mat_wrapper_create(uint32_t nb);
-	void compute_mat_wrapper_prepare(float* temp_r, float* temp_z,
+	void compute_mat_wrapper_prepare(
 		const float* b_hn, const float* b_in,
 		const float* b_r, const float* b_z,
 		const float* W_hn, const float* W_hr, const float* W_hz,

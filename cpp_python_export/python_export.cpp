@@ -17,12 +17,11 @@ PYBIND11_MODULE(compute_mat, m)
                 skr.compute_mat_wrapper_create(nb);
             })
         .def("compute_mat_wrapper_prepare", [](compute_mat_wrapper& skr,
-            std::vector<float> temp_r, std::vector<float> temp_z,
             std::vector<float> b_hn, std::vector<float> b_in,
             std::vector<float> b_r, std::vector<float> b_z,
             std::vector<float> W_hn, std::vector<float> W_hr, std::vector<float> W_hz,
             std::vector<float> W_in, std::vector<float> W_ir, std::vector<float> W_iz) {
-                skr.compute_mat_wrapper_prepare(temp_r.data(), temp_z.data(),
+                skr.compute_mat_wrapper_prepare(
                     b_hn.data(), b_in.data(),
                     b_r.data(), b_z.data(),
                     W_hn.data(), W_hr.data(), W_hz.data(),
